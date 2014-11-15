@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>C mentoring automaton</title>
+    <script type="text/javascript">
+<!--
+  var answer = { 'fgetc_q1': { '0': 'Good!',
+                               '1': 'Sorry. You might find a clue in the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fgetc.html">fgetc manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '2': 'Sorry. You might find a clue in the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fgetc.html">fgetc manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '3': 'How very humble of you! You might find a clue in the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fgetc.html">fgetc manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.'
+               },'fgetc_q2': { '0': 'Sorry. <code>char</code> isn\'t necessarily unsigned, so <code>b</code> may not be able to hold some <code>unsigned char</code> values.',
+                               '1': 'Sorry. Even when <code>char</code> is signed, <code>EOF</code> might not be a character value; It\'s an <code>int</code> value.',
+                               '2': 'Sorry. If this is the case for you, then a standard-compliant <code>fgetc</code> can\'t possibly exist.',
+                               '3': 'Good answer!'
+               },'fgetc_q3': { '0': 'Sorry. Negative values such as <code>EOF</code> can\'t possibly be valid <code>unsigned char</code> values.',
+                               '1': 'Sorry. Negative values such as <code>EOF</code> can\'t possibly be valid <code>unsigned char</code> values.',
+                               '2': 'Sorry. Negative values can\'t possibly be valid <code>unsigned char</code> values.',
+                               '3': 'Correct!'
+               },'fgetc_q4': { '0': 'Good! It makes sense, doesn\'t it? According to the manual <code>fgetc</code> returns <code>int</code>, so we store the return value in an <code>int</code>.',
+                               '1': 'Sorry. See the second question.',
+                               '2': 'Sorry. See the third question.',
+                               '3': 'You might find a clue in the previous questions/answers.'
+               },'fscanf_q1':{ '0': 'Sorry. You might find a clue in the section on <a href="#pointers">pointers</a>.',
+                               '1': 'Sorry. You might find a clue in the \'return value\' section of the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fscanf.html#tag_03_190_04">fscanf manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '2': 'You\'re on the right track, but this was a trick answer! If you read the \'return value\' section of the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fscanf.html#tag_03_190_04">fscanf manual</a> a little more carefully, I\'m sure you\'ll find a non-zero failure value. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '3': 'Excellent!',
+                               '4': 'That\'s nothing to be ashamed of. We can\'t all know everything. Perhaps you\'d benefit from the <a href="#manuals">Reading manuals</a> section.'
+               },'fscanf_q2':{ '0': 'Did you fool for this trick answer in the previous question, too?',
+                               '1': 'Sorry. You need to check that you\'ve successfully read 2 integers. You might find a clue in the \'return value\' section of the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fscanf.html#tag_03_190_04">fscanf manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '2': 'Good!',
+                               '3': 'Sorry. You need to check that you\'ve successfully read 2 integers. You might find a clue in the \'return value\' section of the <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/fscanf.html#tag_03_190_04">fscanf manual</a>. If you have any trouble reading manuals, you might find the <a href="#manuals">Reading manuals</a> section helpful.',
+                               '4': 'Sorry. There is a correct answer to select. Stop guessing!'
+               } };
+
+      function correct(radio) {
+        var div = document.getElementById(radio.name);
+        div = div && radio.parentNode.removeChild(div);
+        div = div || document.createElement('div');
+        div.id = radio.name;
+        div.innerHTML = answer[radio.name][radio.value] + '<br />';
+
+        var loc = radio;
+        do {
+            loc = loc.nextSibling;
+        } while (loc.type != 'radio' && loc.nextSibling != null);
+        radio.parentNode.insertBefore(div, loc);
+      }
+-->
+    </script>
+  </head>
+  <body>
+    <h1>C mentoring automaton</h1>
+    <div id="table_of_contents">
+      <h2>Table of contents</h2>
+      <ul>
+        <li><a href="#fundamental_integer_types">Fundamental integers</a></li>
+        <li><a href="#arrays">Arrays</a></li>
+        <li><a href="#pointers">Pointers</a></li>
+        <li><a href="#arrays_to_pointers">Arrays to pointers</a></li>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#manuals">Reading manuals</a></li>
+        <li><a href="#fgetc"><code>int fgetc(FILE *stream);</code></a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#fscanf"><code>int fscanf(FILE *stream, const char *format, ... );</code></a></li>
+      </ul>
+    </div>
+    <div id="fundamental_integers">
+      <h2>Fundamental integers</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read array, pointer and function declarations, manuals -->
+    </div>
+    <div id="arrays">
+      <h2>Arrays</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read manuals -->
+    </div>
+    <div id="pointers">
+      <h2>Pointers</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read function declarations, manuals -->
+    </div>
+    <div id="arrays_to_pointers">
+      <h2>Arrays to pointers</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read function declarations, manuals -->
+    </div>
+    <div id="functions">
+      <h2>Functions</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read function declarations, manuals -->
+    </div>
+    <div id="manuals">
+      <h2>Reading manuals</h2>
+      I've noticed that there are a certain class of people who will exaggerate the difficulty of understanding manuals. That's unfortunate for three reasons:
+      <ul>
+        <li>Reading the manual is often required prior to using a function (or library) for the first time.</li>
+        <li>Noticing minute details in manuals happens to be great practice for noticing minute details in code, so reading the manual will help you to read code.</li>
+        <li>It's really easy once you know how to use <a href="#fundamental_integers">fundamental integers</a>, <a href="#arrays">arrays</a> and <a href="#pointers">pointers</a> in <a href="#functions">function</a> definitions!</li>
+      </ul>
+      In fact, deciphering manuals is almost as easy as finding them. To find a manual for the <code>fgetc</code> function, I would google for "opengroup fgetc". I recommend the Open Group documents because they're usually pretty close to standard C documents.<br /><br />
+      Lets decipher one now, in the next section on <a href="#fgetc"><code>fgetc</code></a>...
+    </div>
+    <div id="fgetc">
+      <h2><code>int fgetc(FILE *stream);</code></h2>
+      <form action="#"><ul><li><code>int a = fgetc(stdin);</code>
+        What possible values could <code>a</code> have?<br />
+        <input type="radio" name="fgetc_q1" value="0" onclick="correct(this);" />Any <code>unsigned char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q1" value="1" onclick="correct(this);" />Any <code>char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q1" value="2" onclick="correct(this);" />Any <code>int</code> value<br />
+        <input type="radio" name="fgetc_q1" value="3" onclick="correct(this);" />I don't know<br />
+      </li><li><code>char b = fgetc(stdin);</code>
+        What possible values could <code>b</code> have?<br />
+        <input type="radio" name="fgetc_q2" value="0" onclick="correct(this);" />Any <code>unsigned char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q2" value="1" onclick="correct(this);" />Any <code>char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q2" value="2" onclick="correct(this);" />Any <code>int</code> value<br />
+        <input type="radio" name="fgetc_q2" value="3" onclick="correct(this);" />None of the above<br />
+      </li><li><code>unsigned char c = fgetc(stdin);</code>
+        What possible values could <code>c</code> have?<br />
+        <input type="radio" name="fgetc_q3" value="0" onclick="correct(this);" />Any <code>unsigned char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q3" value="1" onclick="correct(this);" />Any <code>char</code> value, or an <code>EOF</code> value<br />
+        <input type="radio" name="fgetc_q3" value="2" onclick="correct(this);" />Any <code>int</code> value<br />
+        <input type="radio" name="fgetc_q3" value="3" onclick="correct(this);" />None of the above<br />
+      </li><li>Which type should be used to store the return value of <code>fgetc</code>?<br />
+        <input type="radio" name="fgetc_q4" value="0" onclick="correct(this);" /><code>int</code><br />
+        <input type="radio" name="fgetc_q4" value="1" onclick="correct(this);" /><code>char</code><br />
+        <input type="radio" name="fgetc_q4" value="2" onclick="correct(this);" /><code>unsigned char</code><br />
+        <input type="radio" name="fgetc_q4" value="3" onclick="correct(this);" />I don't know<br />
+      </li></ul></form>
+    </div>
+    <div id="strings">
+      <h2>Strings</h2>
+      <!-- This section is intended to lead up to the necessary understanding required to read manuals and write compliant code -->
+    </div>
+    <div id="fscanf">
+      <h2><code>int fscanf(FILE *stream, const char *format, ... );</code></h2>
+      <form action="#"><ul><li><code>FILE *file = stdin;<br />
+                                     int a;<br /></code>
+        How should I read a decimal digit integer from <code>file</code> into <code>a</code>?<br />
+        <input type="radio" name="fscanf_q1" value="0" onclick="correct(this);" /><code>fscanf(file, "%d", a);</code><br />
+        <input type="radio" name="fscanf_q1" value="1" onclick="correct(this);" /><code>fscanf(file, "%d", &a);</code><br />
+        <input type="radio" name="fscanf_q1" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a)) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q1" value="3" onclick="correct(this);" />None of the above<br />
+        <input type="radio" name="fscanf_q1" value="4" onclick="correct(this);" />I don't know<br />
+      </li><li><code>FILE *file = stdin;<br />
+                     int a, b;<br /></code>
+        How should I read a pair of decimal digit integers from <code>file</code> into <code>a</code> and <code>b</code>?<br />
+        <input type="radio" name="fscanf_q2" value="0" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b)) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="1" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) == 1) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) == 2) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="3" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) != EOF) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="4" onclick="correct(this);" /><code>None of the above</code><br />
+      </li></ul></form>
+    </div>
+  </body>
+</html>
