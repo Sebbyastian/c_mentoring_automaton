@@ -62,6 +62,7 @@
         <li><a href="#fgetc"><code>int fgetc(FILE *stream);</code></a></li>
         <li><a href="#strings">Strings</a></li>
         <li><a href="#fscanf"><code>int fscanf(FILE *stream, const char *format, ... );</code></a></li>
+        <li><a href="#optimisation"><code>Realistic optimisation</code></a></li>
       </ul>
     </div>
     <div id="fundamental_integers">
@@ -132,19 +133,32 @@
                                      int a;<br /></code>
         How should I read a decimal digit integer from <code>file</code> into <code>a</code>?<br />
         <input type="radio" name="fscanf_q1" value="0" onclick="correct(this);" /><code>fscanf(file, "%d", a);</code><br />
-        <input type="radio" name="fscanf_q1" value="1" onclick="correct(this);" /><code>fscanf(file, "%d", &a);</code><br />
-        <input type="radio" name="fscanf_q1" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a)) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q1" value="1" onclick="correct(this);" /><code>fscanf(file, "%d", &amp;a);</code><br />
+        <input type="radio" name="fscanf_q1" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &amp;a)) { /* ... */ }</code><br />
         <input type="radio" name="fscanf_q1" value="3" onclick="correct(this);" />None of the above<br />
         <input type="radio" name="fscanf_q1" value="4" onclick="correct(this);" />I don't know<br />
       </li><li><code>FILE *file = stdin;<br />
                      int a, b;<br /></code>
         How should I read a pair of decimal digit integers from <code>file</code> into <code>a</code> and <code>b</code>?<br />
-        <input type="radio" name="fscanf_q2" value="0" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b)) { /* ... */ }</code><br />
-        <input type="radio" name="fscanf_q2" value="1" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) == 1) { /* ... */ }</code><br />
-        <input type="radio" name="fscanf_q2" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) == 2) { /* ... */ }</code><br />
-        <input type="radio" name="fscanf_q2" value="3" onclick="correct(this);" /><code>if (fscanf(file, "%d", &a, &b) != EOF) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="0" onclick="correct(this);" /><code>if (fscanf(file, "%d", &amp;a, &amp;b)) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="1" onclick="correct(this);" /><code>if (fscanf(file, "%d", &amp;a, &amp;b) == 1) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="2" onclick="correct(this);" /><code>if (fscanf(file, "%d", &amp;a, &amp;b) == 2) { /* ... */ }</code><br />
+        <input type="radio" name="fscanf_q2" value="3" onclick="correct(this);" /><code>if (fscanf(file, "%d", &amp;a, &amp;b) != EOF) { /* ... */ }</code><br />
         <input type="radio" name="fscanf_q2" value="4" onclick="correct(this);" /><code>None of the above</code><br />
       </li></ul></form>
+    </div>
+    <div id="optimisation">
+      <h2>Realistic optimisation</h2>
+      The following steps are geared towards providing maximum useful feedback towards an employer and/or client, so that our job stays ours. After all, the worst kind of bottleneck a professional programmer will face is unemployment. These steps also apply to hobbyist programmers, except that we will be our own employer. It's still important to manage time, so we can get the job done and move onto something else.
+      <ul>
+        <li><strong>Solve the problem with clean, adaptable and maintainable code.</strong> In a realistic environment, we will be asked to produce and probably update programs that have relatively complex functionality. The sooner we solve the problem (no matter how slow the code is), the sooner we can show progress. Don't waste time with micro-optimisations that reduce the clarity of our code and slow our development down.</li>
+        <li><strong>Only optimise if you're told to do so.</strong> Man hours are more expensive than machine hours, and our clients might decide the program doesn't need optimisation, or that it's cheaper to buy new, faster hardware.</li>
+        <li><strong>Use a profiler</strong> to record the speed of the unoptimised program. This tells us which parts of our program represent most of the runtime or cause the most CPU cache misses. Work on optimising those parts first.</li>
+        <li><strong>Use a profiler again</strong> after each optimisation (using the same inputs, of course) to verify that the optimisation was successful and determine what to optimise next.</li>
+        <li><strong>Submit the before and after stats</strong> to our employer/client to justify our man hours, and so they can decide whether to proceed with further optimisation.</li>
+      </ul>
+
+      We might be tempted to stress-test multiple expressions that appear to perform the same functionality (eg. inlined functions vs non-inlined functions, right shift vs. division by power of two, etc), but the time we spend doing so will probably be time wasted when we consider the bigger picture. Often such <em>micro-optimisations</em> as they are called will bloat code leading to CPU cache misses, or introduce subtle buggy edgecases.
     </div>
   </body>
 </html>
